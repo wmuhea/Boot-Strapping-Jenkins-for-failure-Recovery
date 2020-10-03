@@ -21,3 +21,19 @@ pipelineJob('Gubignit-Job') {
         }
     }
 }
+
+pipelineJob('Gubignit-Job-docker') {
+    definition {
+        cpsScm {
+            scm {
+                git {
+                    remote {
+                        url 'https://github.com/wmuhea/cicdlearning.git'
+                    }
+                    branch 'master'
+                    scriptPath 'Jenkinsfile-docker' //this  is refferting to the second Jenkins file. By default
+                }
+            }
+        }
+    }
+}
