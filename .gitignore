@@ -1,4 +1,4 @@
-.gradle
+.gradlegit rm -r --cached
 **/build/
 !src/**/build/
 
