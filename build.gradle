@@ -1,0 +1,26 @@
+plugins {
+    id 'base'
+    id 'com.palantir.docker' version '0.25.0'
+    id 'com.palantir.docker-run' version '0.25.0'
+    id 'pl.allegro.tech.build.axion-release' version '1.12.0'
+}
+
+project.version = scmVersion.version
+
+docker{
+    name "${project.name}:${project.version}"
+    files "plugins.txt"
+}
+
+// To run the docker image as a container, we need
+
+dockerRun {
+    name "${project.name}"
+    image "${project.name}:${project.version}"
+    ports '8080:8080'
+    clean true // when the docker container is stopped it will also be removed
+    daemonize false // log output will come directly to the console
+}
+
+
+
