@@ -3,7 +3,7 @@ FROM jenkins/jenkins:2.249.1-jdk11
 USER root
 RUN curl -sSL https://get.docker.com/ | sh
 RUN usermod -a -G docker jenkins
-RUN reboot
+RUN newgrp docker
 USER jenkins
 
 COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
