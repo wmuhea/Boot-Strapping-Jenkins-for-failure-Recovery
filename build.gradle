@@ -21,7 +21,7 @@ if (DefaultNativePlatform.getCurrentOperatingSystem().isWindows()){
     process = "docker run --rm -v /var/run/docker.sock:/var/run/socker.sock alpine stat -c %g /var/run/docker.sock".execute()
 }
 else {
-    process = "sudo stat -c %g /var/run/docker.sock".execute()
+    process = "stat -c %g /var/run/docker.sock".execute()
 }
 def out = new ByteArrayOutputStream()
 process.waitForProcessOutput(out, System.err)
@@ -36,7 +36,7 @@ dockerRun {
     ports '8080:8080'
     clean true // when the docker container is stopped it will also be removed
     daemonize false // log output will come directly to the console
-    arguments '-v', '/var/run/docker.sock:/var/run/docker.sock', '--group-add', dockerSockGroupId
+    arguments '-v', '//var/run/docker.sock:/var/run/docker.sock', '--group-add', dockerSockGroupId
 }
 
 
