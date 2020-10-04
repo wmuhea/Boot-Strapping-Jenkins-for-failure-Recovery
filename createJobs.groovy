@@ -47,7 +47,7 @@ pipelineJob('Gubignit-Job-docker') {
                         url 'https://github.com/wmuhea/cicdlearning.git'
                     }
                     branch 'master'
-                    scriptPath 'Jenkinsfile-aws' //this  is refferting to the second Jenkins file. By default
+                    scriptPath 'Jenkinsfile-aws' //this  is refferting to the third Jenkins file. By default
                 }
             }
         }
