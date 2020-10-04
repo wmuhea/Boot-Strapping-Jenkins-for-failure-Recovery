@@ -1,8 +1,8 @@
-FROM jenkins/jenkins:2.249.1-jdk11
+FROM jenkins/jenkins:2.249.1-jdk8
 
 USER root
-RUN curl -sSL https://get.docker.com | sh
-RUN usermod -aG docker jenkins
+RUN curl -sSL https://get.docker.com/ | sh
+RUN usermod -a -G docker jenkins
 USER jenkins
 
 COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
