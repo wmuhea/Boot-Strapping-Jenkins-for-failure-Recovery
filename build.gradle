@@ -36,7 +36,7 @@ dockerRun {
     ports '8080:8080'
     clean true // when the docker container is stopped it will also be removed
     daemonize false // log output will come directly to the console
-    arguments '-v', '/var/run/docker.sock:/var/run/docker.sock', '--group-add', dockerSockGroupId
+    arguments '-v','jenkins_home:/var/jenkins_home','-v', '/var/run/docker.sock:/var/run/docker.sock', '--group-add', dockerSockGroupId
 }
 
 
