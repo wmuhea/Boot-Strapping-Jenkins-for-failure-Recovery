@@ -28,7 +28,7 @@ process.waitForProcessOutput(out, System.err)
 
 String dockerSockGroupId = out.toString().trim()*/
 
-String dockerSockGroupId = "root"
+String dockerSockGroupId = "docker"
 
 dockerRun {
     name "${project.name}"
@@ -36,7 +36,7 @@ dockerRun {
     ports '8080:8080'
     clean true // when the docker container is stopped it will also be removed
     daemonize false // log output will come directly to the console
-    arguments '-v','jenkins_home:/var/jenkins_home','-v', '/var/run/docker.sock:/var/run/docker.sock', '--group-add', dockerSockGroupId
+    arguments '-v', '/var/run/docker.sock:/var/run/docker.sock', '--group-add', 'docker'
 }
 
 
